@@ -7,11 +7,19 @@ const app = express()
 // res.send('mid')
 // })
 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+
+
 //normal get request
 app.get('/', (req, res)=>{
     res.send('good morning!')
 })
+app.post('/', (req, res)=>{
+    console.log(req.body)
+    res.send('nothing')
 
+})
 //param request
 app.get('/reddit/:subreddit',(req,res)=>{
     const {subreddit} = req.params
